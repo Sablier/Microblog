@@ -1,0 +1,31 @@
+{% extends "base.html" %}
+{% import "_macros.html" as macros %}
+
+{% block header %}
+{% endblock %}
+
+{% block title %}
+    SablierBlog - 广场
+{% endblock %}
+
+{% block page_content %}
+    <h1>
+        {#    {% if user.name == '' %}#}
+        {#        Hi, Welcome to SablierBlog!#}
+        {#    {% else %}#}
+        {#        Hi, {{ user.name }}! Have Fun Here!#}
+        {#    {% endif %}#}
+        {% if current_user.is_authenticated %}
+            Hi,{{ current_user.username }}! Have Fun Here!
+        {% else %}
+            Hi, Welcome to SablierBlog!
+        {% endif %}
+    </h1>
+
+    {#    {% set template = "_timeline.html" %}#}
+    {#    {% include template %}#}
+    {#    <div class="pagination">#}
+    {#        {{ macros.pagination_widget(pagination, 'index') }}#}
+    {#    </div>#}
+
+{% endblock %}

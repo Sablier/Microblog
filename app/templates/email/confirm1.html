@@ -1,0 +1,15 @@
+Dear {{ user.username }},<br/>
+<br/>
+欢迎加入 SablierBlog!<br/>
+<br/>
+To confirm your account please click on the following link:<br/>
+<br/>
+{#{{ url_for('auth.confirm', token=token, _external=True) }}<br/>#}
+<br/>
+<br/>
+<br/>
+祝您玩得开心,<br/>
+<br/>
+The Bravo Team<br/>
+<br/>
+Note: replies to this email address are not monitored.<br/>
