@@ -52,7 +52,7 @@ def register():
         user = User(email=email, username=username, password=password)
         db.session.add(user)
         db.session.commit()
-
+        login_user(user)
         token = user.generate_confirmation_token()
         user.send_email(user.email, 'Confirm Your Account', 'email/confirm', token=token)
         flash('验证邮件已发送，请登录邮箱以完成注册')
@@ -62,11 +62,12 @@ def register():
 
 
 @auth_blueprint.route('/confirm/<token>')
+@login_required
 def confirm(token):
     if current_user.confirmed:
-        return redirect(url_for('main.index'))
-    if current_user.confirm(token):
+        return redirect(url_for('index'))
+    if current_user.confirm_token(token):
         flash('You have confirmed your account. Thanks!')
     else:
         flash('The confirmation link is invalid or has expired.')
-        return redirect(url_for('main.index'))
+        return redirect(url_for('index'))

@@ -10,11 +10,15 @@ import smtplib
 
 
 class AnonymousUser(AnonymousUserMixin):
-    """主要用户主页在没有登录状态下调用user.name"""
+    """主要用户主页在没有登录状态下调用user的各种属性"""
 
     @property
     def name(self):
         return ''
+
+    @property
+    def confirmed(self):
+        return False
 
 
 class User(UserMixin, db.Model):
