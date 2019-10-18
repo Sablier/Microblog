@@ -15,6 +15,7 @@
         {#    {% else %}#}
         {#        Hi, {{ user.name }}! Have Fun Here!#}
         {#    {% endif %}#}
+
         {% if current_user.is_authenticated %}
             Hi,{{ current_user.username }}! Have Fun Here!
         {% else %}

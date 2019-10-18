@@ -1,14 +1,14 @@
-Dear {{ user.username }},<br/>
+Dear {{ current_user.username }},<br/>
 <br/>
-欢迎加入 SablierBlog!<br/>
+Welcome to SablierBlog!<br/>
 <br/>
 To confirm your account please click on the following link:<br/>
 <br/>
-{#{{ url_for('auth.confirm', token=token, _external=True) }}<br/>#}
+{{ url_for('auth.confirm', token=token, _external=True) }}<br/>
 <br/>
 <br/>
 <br/>
-祝您玩得开心,<br/>
+Hope you have a great time here!<br/>
 <br/>
 The Bravo Team<br/>
 <br/>

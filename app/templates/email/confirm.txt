@@ -1,14 +1,12 @@
-亲爱的 {{ user.username }},
+亲爱的 {{ current_user.username }},
 
 欢迎加入 SablierBlog!
 
 To confirm your account please click on the following link:
 
 
+Hope you have a great time here!
 
+The Bravo Team
 
-祝您玩得开心,
-
-The Sablier Team
-
-Note: replies to this email address are not monitored.
+Note: replies to this email address are not monitored
