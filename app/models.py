@@ -104,7 +104,7 @@ class User(UserMixin, db.Model):
         if data.get('confirm') != self.id:
             return False
         self.confirmed = True
-        db.session.add(self)  # 注意，这里邮件确认这一栏已经被添加到commit中，不需要重新添加
+        db.session.commit()
         return True
 
 

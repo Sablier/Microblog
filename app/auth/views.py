@@ -61,13 +61,14 @@ def register():
     return render_template('register.html', form=form)
 
 
-@auth_blueprint.route('/confirm/<token>')
+@auth_blueprint.route('/confirm/<token>', methods=['GET'])
 @login_required
 def confirm(token):
     if current_user.confirmed:
         return redirect(url_for('index'))
     if current_user.confirm_token(token):
         flash('You have confirmed your account. Thanks!')
+        return redirect(url_for('index'))
     else:
         flash('The confirmation link is invalid or has expired.')
         return redirect(url_for('index'))
